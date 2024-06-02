@@ -1,6 +1,6 @@
 ---
 theme: dashboard
-title: Example dashboard
+title: 22 - Observable - Example dashboard
 toc: false
 ---
 

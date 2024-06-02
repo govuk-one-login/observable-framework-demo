@@ -1,5 +1,5 @@
 ---
-title: Example report
+title: 23 - Observable - Example report
 ---
 
 # A brief history of space exploration
