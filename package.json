@@ -9,6 +9,7 @@
     "observable": "observable"
   },
   "dependencies": {
+    "@aws-sdk/client-cloudwatch": "3.592.0",
     "@aws-sdk/client-codepipeline": "3.588.0",
     "@aws-sdk/credential-provider-sso": "3.588.0",
     "@observablehq/framework": "^1.8.0",
