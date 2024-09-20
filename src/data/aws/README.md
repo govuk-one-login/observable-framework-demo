@@ -4,7 +4,7 @@ These data loaders are written to scan multiple accounts using a single authenti
 
 ## AWS SSO Configuration
 
-AWS SSO is configured using:
+AWS SSO is configured using a local `~/.aws/config` file containing:
 
 ```bash
 [sso-session my-session]
@@ -13,7 +13,7 @@ sso_region = {{ AWS REGION }}
 sso_registration_scopes = sso:account:access
 ```
 
-Each AWS account will then be configured using:
+Each AWS account will then be configured in that same file using:
 
 ```bash
 [profile {{ PROFILE NAME}}]
@@ -29,6 +29,13 @@ sso_role_name = {{ OTHER AWS ROLE NAME }}
 region = {{ AWS REGION}}
 ```
 
+<div class="tip">
+
+If you change the `sso_session` name to something other than `my-session`, you'll need each profile's `sso_session` to match.
+You'll also need to change the `aws:login` script in `package.json`, if you want to use that.
+
+</div>
+
 ## Environment variables
 
 Multiple accounts can be scanned, and can be configured using .env property of 
@@ -37,6 +44,11 @@ Multiple accounts can be scanned, and can be configured using .env property of
 AWS_ACCOUNT_NAMES={{ AWS PROFILE NAME}},{{ OTHER AWS PROFILE NAME}}
 ```
 
+Note that the AWS Node SDK also ignores any region specified in the configuration file, so you also need
+
+```
+AWS_REGION=eu-west-2
+```
 
 ## Authentication
 
